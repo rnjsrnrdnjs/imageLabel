@@ -1,0 +1,27 @@
+const Sequelize = require("sequelize");
+const env = process.env.NODE_ENV || "development";
+const config = require("../config/config")[env];
+//const User = require('./user');
+const List = require("./list");
+const Label = require("./label");
+
+const db = {};
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config
+);
+
+db.sequelize = sequelize;
+
+db.List = List;
+db.Label = Label;
+
+List.init(sequelize);
+Label.init(sequelize);
+
+List.associate(db);
+Label.associate(db);
+
+module.exports = db;
