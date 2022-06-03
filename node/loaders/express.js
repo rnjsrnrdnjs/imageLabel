@@ -41,7 +41,7 @@ module.exports = (app) => {
     app.use(morgan("dev"));
   }
 
-  //app.use(express.static(path.join(__dirname, '../public')));
+  app.use(express.static(path.join(__dirname, "../public")));
   app.use("/", express.static(path.join(__dirname, "../../imagelabel/build")));
   app.use("/img", express.static(path.join(__dirname, "../uploads")));
   app.use(express.json());

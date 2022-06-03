@@ -4,10 +4,10 @@ module.exports = class Label extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        select: {
-          type: Sequelize.INTEGER,
+        name: {
+          type: Sequelize.STRING(1000),
           allowNull: false,
-          unique: true,
+          unique: false,
         },
       },
       {
